@@ -1,5 +1,6 @@
-FROM mysql:latests
+FROM mysql:latest
 
-COPY inits.sql /docker-entrypoint-initdb.d./init.sql
+COPY init.sql /docker-entrypoint-initdb.d/init.sql
+ENV MYSQL_ROOT_PASSWORD=rootP4ss
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["mysqldd"]
+CMD ["mysqld"]
